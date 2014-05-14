@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ribanTimer" />
+		<Option pch_mode="2" />
+		<Option compiler="avrgcc" />
+		<Build>
+			<Target title="Arduino Uno">
+				<Option output="../../lib/ribantimer.a" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option type="2" />
+				<Option compiler="avrgcc" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-mmcu=$(MCU)" />
+					<Add option="-D__AVR_ATmega328P__" />
+					<Add directory="../../hardware/arduino/variants/standard" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mmcu=$(MCU)" />
+				</Linker>
+				<Environment>
+					<Variable name="MCU" value="atmega328p" />
+				</Environment>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fno-exceptions" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fdata-sections" />
+			<Add option="-x c++" />
+			<Add option="-s" />
+			<Add option="-DF_CPU=16000000L" />
+			<Add option="-DARDUINO=101" />
+			<Add directory="../../hardware/arduino/cores/arduino" />
+		</Compiler>
+		<Linker>
+			<Add option="-Wl,--gc-sections" />
+		</Linker>
+		<Unit filename="ribanTimer.cpp" />
+		<Unit filename="ribanTimer.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
