@@ -15,7 +15,7 @@
 					<Add option="-Os" />
 					<Add option="-mmcu=$(MCU)" />
 					<Add option="-D__AVR_ATmega328P__" />
-					<Add directory="../../hardware/arduino/variants/standard" />
+					<Add directory="/usr/share/arduino/hardware/arduino/variants/standard" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -35,7 +35,7 @@
 			<Add option="-s" />
 			<Add option="-DF_CPU=16000000L" />
 			<Add option="-DARDUINO=101" />
-			<Add directory="../../hardware/arduino/cores/arduino" />
+			<Add directory="/usr/share/arduino/hardware/arduino/cores/arduino" />
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,--gc-sections" />

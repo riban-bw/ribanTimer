@@ -17,5 +17,7 @@ Check for timer event regularly (e.g. in main program loop).
 The class is fairly simple. See examples for suggested use.
 
 There are various timer routines and libraries but none (that I found) provided the features I needed. Some were more complex, adding to code size whilst others had fewer features.
+The name is to differentiate if from other timer libraries. riban is the trading name I use.
 
 This library is licenced under the LGPL and is copyright (c) Brian Walton. It is not knowingly derived from any other works but depends on the Arduino libraries.
+The source code is available at https://github.com/riban-bw/ribanTimer.git.

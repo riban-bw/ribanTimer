@@ -28,12 +28,12 @@ class Timer
         *   @return <i>bool</i> True if triggered
         *   @note   Call IsTriggered regulary, e.g. within main loop
         */
-        bool IsTriggered();
+        bool isTriggered();
 
         /** @brief  Gets the number of events triggered since intialised
         *   @return <i>unsigned long</i> Quantity of events
         */
-        unsigned long GetCount();
+        unsigned long getCount();
 
     private:
         bool m_bMicroseconds; // True to configure as microsecond timer
