@@ -1,3 +1,8 @@
+/**     ribanTimer - Timer functions without 32-bit roll-over issues
+*       Copyright (c) 2014, Brian Walton. All rights reserved. GLPL.
+*       Source availble at https://github.com/riban-bw/ribanTimer.git
+*/
+
 #pragma once
 
 /** @brief  This class provides a non-blocking timer
@@ -28,12 +33,12 @@ class Timer
         *   @return <i>bool</i> True if triggered
         *   @note   Call IsTriggered regulary, e.g. within main loop
         */
-        bool isTriggered();
+        bool IsTriggered();
 
         /** @brief  Gets the number of events triggered since intialised
         *   @return <i>unsigned long</i> Quantity of events
         */
-        unsigned long getCount();
+        unsigned long GetCount();
 
     private:
         bool m_bMicroseconds; // True to configure as microsecond timer

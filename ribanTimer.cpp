@@ -20,7 +20,7 @@ void Timer::stop()
     m_lInterval = 0;
 }
 
-bool Timer::isTriggered()
+bool Timer::IsTriggered()
 {
     bool bReturn = false;
     if(m_lInterval) //do nothing if interval not set
@@ -46,7 +46,7 @@ bool Timer::isTriggered()
     return bReturn;
 };
 
-unsigned long Timer::getCount()
+unsigned long Timer::GetCount()
 {
     return m_lCount;
 }

@@ -6,39 +6,38 @@
 		<Option pch_mode="2" />
 		<Option compiler="avrgcc" />
 		<Build>
-			<Target title="Arduino Uno">
-				<Option output="../../lib/ribantimer.a" prefix_auto="1" extension_auto="0" />
+			<Target title="atmega328">
+				<Option output="../../lib/$(MCU)/ribantimer.a" prefix_auto="1" extension_auto="0" />
 				<Option working_dir="" />
+				<Option object_output="objs/$(MCU)" />
 				<Option type="2" />
 				<Option compiler="avrgcc" />
 				<Compiler>
-					<Add option="-Os" />
 					<Add option="-mmcu=$(MCU)" />
-					<Add option="-D__AVR_ATmega328P__" />
-					<Add directory="/usr/share/arduino/hardware/arduino/variants/standard" />
+					<Add option="-DF_CPU=16000000L" />
+					<Add option="-D__AVR_ATmega328__" />
+					<Add directory="$(ARDUINO)/hardware/arduino/variants/standard" />
 				</Compiler>
-				<Linker>
-					<Add option="-s" />
-					<Add option="-mmcu=$(MCU)" />
-				</Linker>
 				<Environment>
-					<Variable name="MCU" value="atmega328p" />
+					<Variable name="MCU" value="atmega328" />
 				</Environment>
 			</Target>
+			<Environment>
+				<Variable name="ARDUINO" value="../.." />
+			</Environment>
 		</Build>
 		<Compiler>
+			<Add option="-Os" />
 			<Add option="-Wall" />
 			<Add option="-fno-exceptions" />
 			<Add option="-ffunction-sections" />
 			<Add option="-fdata-sections" />
-			<Add option="-x c++" />
-			<Add option="-s" />
-			<Add option="-DF_CPU=16000000L" />
-			<Add option="-DARDUINO=101" />
-			<Add directory="/usr/share/arduino/hardware/arduino/cores/arduino" />
+			<Add option="-DARDUINO=105" />
+			<Add directory="$(ARDUINO)/hardware/arduino/cores/arduino" />
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,--gc-sections" />
+			<Add option="-mmcu=$(MCU)" />
 		</Linker>
 		<Unit filename="ribanTimer.cpp" />
 		<Unit filename="ribanTimer.h" />
