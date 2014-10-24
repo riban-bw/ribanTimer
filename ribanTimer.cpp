@@ -3,6 +3,7 @@
 
 Timer::Timer(bool Microsecond) :
     m_bMicroseconds(Microsecond),
+    m_bPhase(false),
     m_lInterval(0),
     m_lCount(0)
 {
@@ -13,11 +14,13 @@ void Timer::start(unsigned long Interval, bool OneShot)
     m_lInterval = Interval;
     m_lLastTriggerTime = m_bMicroseconds?micros():millis();
     m_bOneShot = OneShot;
+    m_bPhase = true;
 }
 
 void Timer::stop()
 {
     m_lInterval = 0;
+    m_bPhase = false;
 }
 
 bool Timer::IsTriggered()
@@ -40,7 +43,11 @@ bool Timer::IsTriggered()
             m_lCount++;
             m_lLastTriggerTime = lNow;
             if(m_bOneShot)
+            {
                 m_lInterval = 0;
+                m_bPhase = false;
+            }
+            else m_bPhase = !m_bPhase;
         }
     }
     return bReturn;
@@ -49,4 +56,15 @@ bool Timer::IsTriggered()
 unsigned long Timer::GetCount()
 {
     return m_lCount;
+}
+
+bool Timer::IsRunning()
+{
+    IsTriggered();
+    return (0 != m_lInterval);
+}
+
+bool Timer::IsOddPhase()
+{
+    return m_bPhase;
 }

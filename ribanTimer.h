@@ -35,6 +35,16 @@ class Timer
         */
         bool IsTriggered();
 
+        /** @brief  Check if timer is running
+        *   @return <i>bool</i> True if running
+        */
+        bool IsRunning();
+
+        /** @brief  Check if odd phase (1,3,5...)
+        *   @return <i>bool</i> True if odd phase
+        */
+        bool IsOddPhase();
+
         /** @brief  Gets the number of events triggered since intialised
         *   @return <i>unsigned long</i> Quantity of events
         */
@@ -43,6 +53,7 @@ class Timer
     private:
         bool m_bMicroseconds; // True to configure as microsecond timer
         bool m_bOneShot; // True for one-shot timers
+        bool m_bPhase; // Toggles on each trigger
         unsigned long m_lInterval; // Timer interval in miliseconds - zero means disable timer
         unsigned long m_lLastTriggerTime; // Time of last update
         unsigned long m_lCount; // Number of times has been triggered
